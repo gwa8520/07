@@ -5,15 +5,14 @@
 
 int main(int argc, char *argv[]) {
 	
-	int flag=1;
-	int y;
+	int i;
+	//int temp=1; 
 	
-	while(flag != 0){
-		y=3;
-		flag=0;
-	}
-	
-	y=4;  //y는 while문을 벗어나 없어짐, y의 정의가 되지 않음으로 에러  
+	for(i=0;i<5;i++){    //temp가 1의 값만 갖는다. temp는 블록이 끝나면 소멸. i가 다시 2로 들어가면 temp가 새로 생성.    
+		int temp=1;  //static int temp=1;
+		printf("temp is %d\n",temp);
+		temp++;
+	}  
 	
 	return 0;
 }
