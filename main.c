@@ -2,19 +2,28 @@
 #include <stdlib.h>
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
- void f(void);
- 
- int i; 
+void sub(void); 
 
 int main(int argc, char *argv[]) {
-	for(i=0;i<5;i++){  //i의 값이 5보다 더 크기에 한번만 실행 후 종료된다.  
-		f();  
+	int i;
+	
+	for(i=0;i<3;i++){
+		sub();
 	}
 return 0;
 } 
 
-void f(void){
-	for(i=0;i<10;i++){
-		printf("#");   //여기서 전역변수 i의 값이 10으로고정  
-	}
+void sub(void){
+	int auto_count =0;
+	static int static_count =0;
+	
+	auto_count++;  //지역변수이므로 stack영역에 데이터가 잡힘, 블록에 나가면 소멸  
+	static_count++; //전역변수이므로 data영역에 데이터가 잡힘, 블록에 나가도 값 유지  
+	
+	printf("auto_count = %d\n",auto_count);
+	printf("static_count = %d\n",static_count); 
 }
+
+
+
+
